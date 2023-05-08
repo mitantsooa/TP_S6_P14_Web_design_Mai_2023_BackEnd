@@ -1,0 +1,36 @@
+<section id="main-content" th:fragment="demande">
+    <h3 style="text-align: center;">Liste des demandes en cours</h3>
+    <div style="margin-top: 1%;" class="row">
+        <a th:href="@{/ListeDemandes?valide=OK}" style="background-color: #009455; border-color: #009455; margin: 1%;" class="btn btn-primary mr-2">Validé</a>
+        <a th:href="@{/ListeDemandes?refuse=OK}" style="background-color: #eb595f; border-color: #eb595f; margin: 1%;" class="btn btn-primary mr-2">Réfusé</a>
+        <a th:href="@{/ListeDemandes}" style="margin: 1%;" class="btn btn-primary mr-2">Tous</a>
+        <table class="table mx-4">
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Mail</th>
+                <th>Solde</th>
+                <th>Montant demandé</th>
+                <th>Date de demande</th>
+            </tr>
+            <tr th:each="demande:${allDemandeUser}">
+                <td th:text="${demande.nom}"></td>
+                <td th:text="${demande.prenom}"></td>
+                <td th:text="${demande.mail}"></td>
+                <td th:text="${demande.solde}"></td>
+                <td th:text="${demande.montant}"></td>
+                <td th:text="${demande.dateDemande}"></td>
+                <td>
+                    <a th:if="${isOk == true}"  th:href="@{/ListeDemandes?accept={id}&&solde={solde}&&idUser={idUser}(id=${demande.id},solde=${demande.solde},idUser=${demande.idUtilisateur})}"  type="submit" style="background-color: #009455; border-color: #009455;"
+                        class="btn btn-primary mr-2"><i class="mdi mdi-check"></i></a>
+                </td>
+                </td>
+                </form>
+                <td>
+                    <a th:if="${isOk == true}" th:href="@{/ListeDemandes?no={id}(id=${demande.id})}" style="background-color: #eb595f; border-color: #eb595f;" class="btn btn-primary mr-2"><i
+                            class="mdi mdi-stop"></i></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>

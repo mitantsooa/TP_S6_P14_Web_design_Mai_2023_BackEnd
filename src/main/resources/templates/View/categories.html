@@ -1,0 +1,54 @@
+<section id="main-content" th:fragment="categories">
+    <h3 style="text-align: center;">Ajout catégorie</h3>
+    <form method="POST">
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="categorie">Categorie</label>
+                <input name="nom" placeholder="Le nom du catégorie ... " class="form-control" type="text">
+            </div>
+            <div class="col-lg-3">
+                <label for="categorie">Durée</label>
+                <input name="dureeMax" class="form-control" type="time">
+            </div>
+            <div class="col-lg-5 col-md-12" style="margin-top: 2.5%;">
+                <button class="btn btn-primary" style="color: white; width: 40%;" type="submit">AJOUTER</button>
+            </div>
+            <div class="col-lg-5 col-md-12" style="margin-top: 2.5%;">
+                <span th:text="${error}" style="color: rgb(221, 74, 74);"></span>
+                <span th:text="${succes}" style="color: rgb(56, 201, 56);"></span>
+            </div>
+        </div>
+    </form>
+    <div style="margin-top: 1%;" class="row">
+        <h4>Liste des catégories</h4>
+        <table class="table mx-4">
+            <tr>
+                <th>Catégorie</th>
+                <th>Dureé maximum</th>
+            </tr>
+            <tr th:each="categorie:${allCategorie}">
+                <form method="POST">
+                    <td>
+                        <input class="form-control" type="hidden" name="id"
+                            th:value="${categorie.id}">
+                        <input class="form-control" type="text" name="categorie"
+                            th:value="${categorie.nom}">
+                    </td>
+                    <td>
+                        <input class="form-control" type="time" name="duree"
+                            th:value="${categorie.dureeMax}">
+                    </td>
+                    <td>
+                        <button type="submit" style="background-color: #009455; border-color: #009455;"
+                            class="btn btn-primary mr-2"><i class="mdi mdi-lead-pencil"></i></button>
+                    </td>
+                    </td>
+                </form>
+                <td>
+                    <a th:href="@{/Categories?idCategorie={id}(id=${categorie.id})}" style="background-color: #eb595f; border-color: #eb595f;" class="btn btn-primary mr-2"><i
+                            class="mdi mdi-delete" ></i></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>

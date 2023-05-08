@@ -1,0 +1,25 @@
+<section id="main-content" th:fragment="parametrage">
+     <h3 style="text-align: center;">Historique des paramétrages</h3>
+    <div style="margin-top: 1%;" class="row">
+        <div style="margin-left: 2%;" class="form-group">
+            <form method="POST">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="taux" value="AJOUTER" placeholder="Nouvelle valeur %" aria-label="Recipient's username">
+                    <div class="input-group-append">
+                        <input type="submit"  class="btn btn-sm btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <table class="table mx-4">
+            <tr>
+                <th>Taux</th>
+                <th>Date</th>
+            </tr>
+            <tr th:each="params:${allParam}">
+                <td th:text="${params.taux}"></td>
+                <td th:text="${params.date}"></td>
+            </tr>
+        </table>
+    </div>
+</section>

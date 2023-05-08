@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "efe5c2b7-d086-494d-9546-e856756fe6e3",
+		"name": "FrontOffice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Recherche Avancé",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/FicheEncheres?prix=5000000&dateFin=2023-01-14T10:23:54&motCle=joconde&status=en cours&categorie=art",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"FicheEncheres"
+					],
+					"query": [
+						{
+							"key": "prix",
+							"value": "5000000"
+						},
+						{
+							"key": "dateFin",
+							"value": "2023-01-14T10:23:54"
+						},
+						{
+							"key": "motCle",
+							"value": "joconde"
+						},
+						{
+							"key": "status",
+							"value": "en cours"
+						},
+						{
+							"key": "categorie",
+							"value": "art"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fiche enchère",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dfghuidfghjkdfghjkdfghjk\",\"sdfgdfghjkyyheyrevnjvnevnvjnvjvnrjnvrjvnrrbrvrfrbrb\",\"dsczbdcevejnvkenvjenvkeonveokvkevnekvkef\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/Encheres?nom=produit2022&utilisateurid=1&categorieid=2&duree=10:20:30&prix=30000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"Encheres"
+					],
+					"query": [
+						{
+							"key": "nom",
+							"value": "produit2022"
+						},
+						{
+							"key": "utilisateurid",
+							"value": "1"
+						},
+						{
+							"key": "categorieid",
+							"value": "2"
+						},
+						{
+							"key": "duree",
+							"value": "10:20:30"
+						},
+						{
+							"key": "prix",
+							"value": "30000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Historique",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQxNzIwNzAsImV4cCI6MTY3NDI3MjA3MCwiaWR1dGlsaXNhdGV1ciI6MX0.235ElMg5XClLYCx0y3NEEtLdAKqYeq0Khfj6U_hN3M0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQxNzQ4NDcsImV4cCI6MTY3NDI3NDg0NywiaWR1dGlsaXNhdGV1ciI6NH0.BW6g6EuQYKdwa59tuXvPrjiLZgnABbSJdJM81q5gEa4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"zgrzrgzrgzzg\",\"szzEGGGGGGGGGGRGZefefafefefae\",\"gzegzgzrgzrgerghyukili\"}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/historiques/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"historiques",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AjoutEnchere",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzQxNzUwODMsImV4cCI6MTY3NDI3NTA4MywiaWR1dGlsaXNhdGV1ciI6NH0.wHHjw1xiir6o0UYowGj2MAr4u_mDlrYm2BooBew5SJc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"fdergrbfbghtqbqt\",\"ehhhzf88955fzdfzfp \"}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/Encheres?nom=PRODUITEST&categorieid=1&duree=02:03:20&prix=2000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"Encheres"
+					],
+					"query": [
+						{
+							"key": "nom",
+							"value": "PRODUITEST"
+						},
+						{
+							"key": "categorieid",
+							"value": "1"
+						},
+						{
+							"key": "duree",
+							"value": "02:03:20"
+						},
+						{
+							"key": "prix",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9000/login?email=Mahefa@gmail.com&mdp=mahefa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "Mahefa@gmail.com"
+						},
+						{
+							"key": "mdp",
+							"value": "mahefa"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
